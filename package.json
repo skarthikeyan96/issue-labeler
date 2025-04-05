@@ -1,0 +1,19 @@
+{
+  "name": "issue-labeler",
+  "main": "bin/index.ts",
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^18",
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "nodemon bin/index.js"
+  },
+  "dependencies": {
+    "@octokit/rest": "^21.1.1",
+    "@pulumi/github": "^6.7.0",
+    "@pulumi/pulumi": "^3.159.0",
+    "express": "^5.1.0"
+  }
+}

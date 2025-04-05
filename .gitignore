@@ -1,0 +1,46 @@
+# Node.js
+node_modules/
+dist/
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# Pulumi
+Pulumi.dev.yaml
+Pulumi.prod.yaml
+*.tfstate
+*.tfstate.backup
+
+# Environment variables
+.env
+*.env
+!.env.example
+
+# Build output
+build/
+out/
+dist/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Config (optional, if you want to keep config.json out of version control)
+config.json
+!config.json.example
+
+# Pulumi deployment artifacts
+pulumi-bin/
