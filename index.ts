@@ -7,7 +7,7 @@ import * as fs from "fs";
 import * as crypto from "crypto";
 
 // Config
-const repoName = "issue-labeler-test";
+const repoName = "issue-labeler";
 const owner = "skarthikeyan96";
 const webhookSecret = process.env.WEBHOOK_SECRET || "my-secret-token";
 
@@ -69,9 +69,6 @@ const app = express();
 
 // Log all incoming requests
 app.use((req, res, next) => {
-    // console.log(`Received ${req.method} request to ${req.url}`);
-    // console.log("Headers:", req.headers);
-    // console.log("Raw body:", req.body);
     next();
 });
 
@@ -82,6 +79,18 @@ app.use(express.json());
 app.get("/health", (req, res) => {
     res.status(200).send("Working");
 });
+
+app.use(express.json({
+    verify: (req, res, buf) => {
+        console.log("Entering verify function");
+        const signature = req.headers["x-hub-signature-256"];
+        if (!signature) throw new Error("No signature provided");
+        const hmac = crypto.createHmac("sha256", webhookSecret);
+        const digest = "sha256=" + hmac.update(buf).digest("hex");
+        if (signature !== digest) throw new Error("Invalid signature");
+        console.log("Signature validated successfully");
+    }
+}));
 
 // Webhook endpoint
 app.post("/webhook", async (req, res) => {

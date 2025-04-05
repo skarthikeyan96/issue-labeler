@@ -5,8 +5,9 @@ const pulumi = require("@pulumi/pulumi");
 const octokit = require("@octokit/rest");
 const express = require("express");
 const fs = require("fs");
+const crypto = require("crypto");
 // Config
-const repoName = "issue-labeler-test";
+const repoName = "issue-labeler";
 const owner = "skarthikeyan96";
 const webhookSecret = process.env.WEBHOOK_SECRET || "my-secret-token";
 // Initialize Octokit
@@ -58,9 +59,6 @@ async function labelIssues() {
 const app = express();
 // Log all incoming requests
 app.use((req, res, next) => {
-    // console.log(`Received ${req.method} request to ${req.url}`);
-    // console.log("Headers:", req.headers);
-    // console.log("Raw body:", req.body);
     next();
 });
 // Use express.json() to parse the body
@@ -69,6 +67,19 @@ app.use(express.json());
 app.get("/health", (req, res) => {
     res.status(200).send("Working");
 });
+app.use(express.json({
+    verify: (req, res, buf) => {
+        console.log("Entering verify function");
+        const signature = req.headers["x-hub-signature-256"];
+        if (!signature)
+            throw new Error("No signature provided");
+        const hmac = crypto.createHmac("sha256", webhookSecret);
+        const digest = "sha256=" + hmac.update(buf).digest("hex");
+        if (signature !== digest)
+            throw new Error("Invalid signature");
+        console.log("Signature validated successfully");
+    }
+}));
 // Webhook endpoint
 app.post("/webhook", async (req, res) => {
     console.log("Inside /webhook endpoint");
