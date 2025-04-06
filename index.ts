@@ -101,6 +101,13 @@ app.post("/webhook", async (req, res) => {
         console.log("New issue created, labeling...");
         const issue = req.body.issue;
         await labelIssue(issue);
+        await client.issues.createComment({
+            owner,
+            repo: repoName,
+            issue_number: issue.number,
+            body: "Thanks for your contribution! Please review our guidelines at [CONTRIBUTING.md](https://github.com/skarthikeyan96/issue-labeler/blob/main/CONTRIBUTING.md)."
+        });
+        console.log(`Posted comment on issue #${issue.number}`);
     }
     res.status(200).send("Webhook received");
 });
