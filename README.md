@@ -44,8 +44,8 @@ A Pulumi-based tool to automatically label GitHub issues based on keywords in ti
 
 ## Screenshots
 
-![Labeled Issue #12](https://github.com/skarthikeyan96/issue-labeler/blob/main/docs/image.png)
-![With comments](image.png)
+<img width="1728" alt="image" src="https://github.com/user-attachments/assets/9fedb61a-4da4-4947-9fc5-7bf903f57fa0" />
+
 
 ## Troubleshooting
 
