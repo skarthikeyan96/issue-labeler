@@ -4,6 +4,10 @@
 
 A Pulumi-based tool to automatically label GitHub issues based on keywords in titles and bodies, using a configurable `config.json` file. This project enhances repository management with automated comments and stale issue handling.
 
+## hackathon article
+
+Article-link: https://dev.to/imkarthikeyan/building-a-github-issue-auto-labeler-with-pulumi-and-nodejs-a-challenge-journey-3dnb
+
 ## Features
 
 - Real-time labeling via GitHub webhooks.
@@ -45,6 +49,8 @@ A Pulumi-based tool to automatically label GitHub issues based on keywords in ti
 ## Screenshots
 
 <img width="1728" alt="image" src="https://github.com/user-attachments/assets/9fedb61a-4da4-4947-9fc5-7bf903f57fa0" />
+<img width="1728" alt="image" src="https://github.com/user-attachments/assets/39aca0e5-7717-4a6a-b26d-2264b554908d" />
+
 
 
 ## Troubleshooting
@@ -57,6 +63,7 @@ A Pulumi-based tool to automatically label GitHub issues based on keywords in ti
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
 
 ## Instructions
 
