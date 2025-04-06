@@ -57,3 +57,7 @@ A Pulumi-based tool to automatically label GitHub issues based on keywords in ti
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+## Instructions
+
+For detailed setup instructions, see [instructions.md](instructions.md).
