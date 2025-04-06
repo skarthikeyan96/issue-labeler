@@ -1,11 +1,3 @@
-Automatically label issues based on keywords in the title/description.
-
-Assign reviewers to PRs based on the modified files.
-
-Auto-close stale issues after a certain period of inactivity.
-
-Post friendly comments to remind contributors about contribution guidelines.
-
 # GitHub Issue Auto-Labeler
 
 ## Overview
