@@ -12,5 +12,3 @@
 - **Method**: POST
 - **Headers**: `X-GitHub-Event`, `Content-Type: application/json`
 - **Body**: `{ action: "opened", issue: { title, body, number } }`
-
-![Issue screenshot](image.png)
