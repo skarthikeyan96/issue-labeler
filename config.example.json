@@ -1,0 +1,8 @@
+{
+  "bug": "bug",
+  "fix": "bug",
+  "feature": "enhancement",
+  "add": "enhancement",
+  "question": "question",
+  "error": "bug"
+}
